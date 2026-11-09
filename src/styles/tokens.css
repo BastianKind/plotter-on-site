@@ -1,0 +1,46 @@
+/* Colours come from the plotter logo: deep navy letters and the royal-blue pen stroke.
+   The paper stays warm ivory so the notes read as real stationery. */
+:root {
+  --navy: #0b1b45;
+  --navy-2: #22305c;
+  --blue: #1b47d0;
+  --blue-hover: #1539a8;
+  --blue-soft: #e9eefc;
+  --blue-softer: #f4f7fe;
+  --blue-ring: rgb(27 71 208 / 0.28);
+
+  --bg: #f6f8fc;
+  --surface: #ffffff;
+  --line: #dde3ef;
+  --line-strong: #c4cde0;
+  --text: #0b1b45;
+  --text-2: #4b5573;
+  --text-3: #7b849c;
+
+  --paper: #fdfbf4;
+  --paper-edge: #e6e0cb;
+  --paper-muted: #9a947e;
+  --desk: #eef1f8;
+
+  --success: #1f7a4d;
+  --success-soft: #e4f4eb;
+  --warn: #93560b;
+  --warn-soft: #fcf1df;
+  --danger: #b3261e;
+  --danger-soft: #fdecea;
+
+  --shadow-sm: 0 1px 2px rgb(11 27 69 / 0.06);
+  --shadow-md: 0 2px 6px rgb(11 27 69 / 0.06), 0 10px 28px rgb(11 27 69 / 0.08);
+  --shadow-lg: 0 24px 60px rgb(11 27 69 / 0.22);
+  --shadow-paper: 0 1px 2px rgb(60 50 20 / 0.08), 0 8px 22px rgb(60 50 20 / 0.12);
+
+  --radius-sm: 8px;
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --font-display: 'Outfit', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Instrument Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-hand: 'Caveat', 'Segoe Print', cursive;
+
+  --header-h: 72px;
+}

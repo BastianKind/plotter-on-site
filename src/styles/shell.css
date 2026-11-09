@@ -1,0 +1,369 @@
+/* The desktop app window: title bar, sidebar, page and status bar. */
+
+body {
+  font-size: 14px;
+  background: #c9d0de;
+}
+
+.app {
+  height: 100vh;
+  min-width: 1080px;
+  display: grid;
+  grid-template-columns: 208px 1fr;
+  grid-template-rows: 36px 1fr 28px;
+  grid-template-areas:
+    'title title'
+    'side page'
+    'status status';
+  background: var(--bg);
+  overflow: hidden;
+}
+
+/* ---------- title bar ---------- */
+
+.titlebar {
+  grid-area: title;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-left: 12px;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  font-size: 12.5px;
+  user-select: none;
+}
+
+.app-mark {
+  display: flex;
+}
+
+.titlebar-name {
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.titlebar-project {
+  color: var(--text-2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.proto-pill {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--warn-soft);
+  color: var(--warn);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: help;
+}
+
+.win-buttons {
+  margin-left: auto;
+  display: flex;
+  height: 100%;
+}
+
+.win-buttons button {
+  width: 46px;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border: 0;
+  background: transparent;
+  color: var(--text-2);
+}
+
+.win-buttons button:hover {
+  background: #eef1f6;
+}
+
+.win-buttons .win-close:hover {
+  background: #c42b1c;
+  color: #fff;
+}
+
+/* ---------- sidebar ---------- */
+
+.sidebar {
+  grid-area: side;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 10px;
+  background: #f0f3f9;
+  border-right: 1px solid var(--line);
+  min-height: 0;
+}
+
+.nav-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 38px;
+  padding: 0 10px;
+  border: 0;
+  border-radius: 9px;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+  text-align: left;
+}
+
+.nav-btn:hover:not(:disabled) {
+  background: #e3e8f2;
+  color: var(--navy);
+}
+
+.nav-btn.is-on {
+  background: #fff;
+  color: var(--blue);
+  box-shadow: var(--shadow-sm), 0 1px 6px rgb(11 27 69 / 0.06);
+}
+
+.nav-btn:disabled {
+  opacity: 0.45;
+}
+
+.nav-badge {
+  margin-left: auto;
+  min-width: 20px;
+  height: 20px;
+  padding: 0 6px;
+  display: grid;
+  place-items: center;
+  border-radius: 999px;
+  background: #e3e8f2;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-2);
+}
+
+.nav-btn.is-on .nav-badge {
+  background: var(--blue-soft);
+  color: var(--blue);
+}
+
+.nav-project {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.nav-project-name {
+  padding: 0 10px 6px;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.nav-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+/* ---------- page area ---------- */
+
+.page {
+  grid-area: page;
+  min-width: 0;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.page-scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding: 26px 32px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.page-scroll > * {
+  max-width: 1200px;
+}
+
+.page-head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.page-head h1 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.page-head .muted {
+  margin-top: 2px;
+}
+
+.head-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.callout {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 12px 16px;
+  border-radius: 12px;
+  background: var(--warn-soft);
+  color: #5c3a08;
+  font-size: 13.5px;
+}
+
+.callout > svg {
+  flex: none;
+  color: var(--warn);
+}
+
+.callout > div {
+  flex: 1;
+}
+
+.callout-soft {
+  background: var(--blue-softer);
+  color: var(--navy-2);
+}
+
+.callout-soft > svg {
+  color: var(--blue);
+}
+
+.card-box {
+  padding: 18px 20px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card-title {
+  font-family: var(--font-display);
+  font-size: 17px;
+  font-weight: 600;
+}
+
+.empty {
+  padding: 24px;
+  text-align: center;
+  color: var(--text-3);
+}
+
+.hint {
+  max-width: 720px;
+}
+
+/* side panels used by the design and write pages */
+
+.panel {
+  min-height: 0;
+  overflow: auto;
+  padding: 16px;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.panel-left {
+  border-right: 1px solid var(--line);
+}
+
+.panel-right {
+  border-left: 1px solid var(--line);
+}
+
+.panel-title {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-3);
+}
+
+.panel-note {
+  display: flex;
+  gap: 8px;
+  margin-top: auto;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--blue-softer);
+  font-size: 12.5px;
+  color: var(--text-2);
+}
+
+.panel-note svg {
+  flex: none;
+  margin-top: 2px;
+  color: var(--blue);
+}
+
+/* ---------- status bar ---------- */
+
+.statusbar {
+  grid-area: status;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 0 12px;
+  background: var(--navy);
+  color: #c9d3ee;
+  font-size: 12px;
+}
+
+.sb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.sb-connect {
+  border: 0;
+  background: none;
+  color: #fff;
+  font-size: 12px;
+  padding: 0;
+}
+
+.sb-job {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #fff;
+}
+
+.statusbar .dot-ok {
+  box-shadow: none;
+}

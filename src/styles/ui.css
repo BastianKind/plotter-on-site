@@ -1,0 +1,628 @@
+/* ---------- buttons ---------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 9px;
+  border: 1.5px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    background 0.12s,
+    border-color 0.12s,
+    color 0.12s;
+}
+
+.btn-sm {
+  height: 32px;
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--blue-hover);
+}
+
+.btn-primary:disabled {
+  background: #b9c4e4;
+}
+
+.btn-secondary {
+  background: #fff;
+  border-color: var(--line-strong);
+  color: var(--navy);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.btn-secondary:disabled {
+  color: var(--text-3);
+  background: #f5f7fb;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--blue);
+}
+
+.btn-ghost:hover:not(:disabled) {
+  background: var(--blue-softer);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: #fff;
+}
+
+.btn-danger-text {
+  color: var(--danger);
+}
+
+.btn-ghost.btn-danger-text:hover:not(:disabled) {
+  background: var(--danger-soft);
+}
+
+.btn-link {
+  border: 0;
+  background: none;
+  padding: 0;
+  color: var(--blue);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.icon-btn {
+  width: 32px;
+  height: 32px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text-2);
+}
+
+.icon-btn.sm {
+  width: 28px;
+  height: 28px;
+}
+
+.icon-btn:hover:not(:disabled) {
+  background: var(--blue-softer);
+  color: var(--navy);
+}
+
+/* ---------- segmented switch ---------- */
+
+.seg {
+  display: inline-flex;
+  padding: 3px;
+  gap: 3px;
+  border-radius: 10px;
+  background: #e7ebf3;
+}
+
+.seg button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  border: 0;
+  border-radius: 8px;
+  background: transparent;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.seg button:hover:not(.is-on) {
+  color: var(--navy);
+}
+
+.seg button.is-on {
+  background: #fff;
+  color: var(--navy);
+  box-shadow: var(--shadow-sm), 0 1px 4px rgb(11 27 69 / 0.08);
+}
+
+.seg-sm button {
+  height: 28px;
+  padding: 0 10px;
+  font-size: 12.5px;
+}
+
+.seg-block {
+  display: flex;
+}
+
+.seg-block button {
+  flex: 1;
+}
+
+/* ---------- fields ---------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.field-label {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.field input,
+.field textarea,
+.field select,
+.setting select {
+  width: 100%;
+  border: 1.5px solid var(--line-strong);
+  border-radius: 9px;
+  padding: 8px 11px;
+  font-size: 14px;
+  line-height: 1.4;
+  background: #fff;
+  outline: none;
+  resize: vertical;
+}
+
+.field input:focus,
+.field textarea:focus,
+.field select:focus,
+.setting select:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 3px var(--blue-ring);
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  cursor: pointer;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--blue);
+}
+
+.switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  color: var(--text-2);
+  cursor: pointer;
+}
+
+.switch input {
+  accent-color: var(--blue);
+}
+
+.toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.toggle-ui {
+  flex: none;
+  width: 36px;
+  height: 20px;
+  margin-top: 2px;
+  border-radius: 999px;
+  background: var(--line-strong);
+  position: relative;
+  transition: background 0.15s;
+}
+
+.toggle-ui::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.15s;
+}
+
+.toggle input:checked + .toggle-ui {
+  background: var(--blue);
+}
+
+.toggle input:checked + .toggle-ui::after {
+  transform: translateX(16px);
+}
+
+.toggle input:focus-visible + .toggle-ui {
+  outline: 3px solid var(--blue);
+  outline-offset: 2px;
+}
+
+.toggle > span:last-child {
+  display: flex;
+  flex-direction: column;
+  font-size: 13.5px;
+}
+
+input[type='range'] {
+  width: 100%;
+  accent-color: var(--blue);
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  height: 26px;
+  padding: 0 9px;
+  border-radius: 7px;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 12px;
+  color: var(--navy-2);
+}
+
+button.chip:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+.chip.is-used {
+  background: var(--blue-soft);
+  border-color: var(--blue-soft);
+  color: var(--blue);
+}
+
+.chip-add {
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-style: dashed;
+  color: var(--blue);
+}
+
+code {
+  padding: 1px 5px;
+  border-radius: 5px;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-family: ui-monospace, 'Cascadia Code', Consolas, monospace;
+  font-size: 12px;
+}
+
+code + code {
+  margin-left: 4px;
+}
+
+.ink-dot {
+  flex: none;
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  box-shadow: 0 0 0 2px #fff inset;
+}
+
+.ink-dot.sm {
+  width: 10px;
+  height: 10px;
+  box-shadow: none;
+}
+
+.ink-dot.lg {
+  width: 28px;
+  height: 28px;
+}
+
+.dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  vertical-align: 1px;
+}
+
+.dot-ok {
+  background: #2fb36b;
+  box-shadow: 0 0 0 3px rgb(47 179 107 / 0.18);
+}
+
+.dot-busy {
+  background: var(--blue);
+  box-shadow: 0 0 0 3px rgb(27 71 208 / 0.2);
+  animation: blink 1.2s ease-in-out infinite;
+}
+
+.dot-off {
+  background: #c2c8d6;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0.35;
+  }
+}
+
+.spinner {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 3px solid var(--blue-soft);
+  border-top-color: var(--blue);
+  animation: spin 0.8s linear infinite;
+}
+
+.spinner.sm {
+  width: 14px;
+  height: 14px;
+  border-width: 2px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.progress {
+  height: 8px;
+  border-radius: 999px;
+  background: #e1e6f0;
+  overflow: hidden;
+}
+
+.progress span {
+  display: block;
+  height: 100%;
+  background: var(--blue);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+/* ---------- modal ---------- */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: grid;
+  place-items: center;
+  padding: 32px;
+  background: rgb(11 27 69 / 0.38);
+  animation: fade-in 0.12s ease-out;
+}
+
+.modal {
+  width: 100%;
+  max-height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+  outline: none;
+  animation: rise 0.16s ease-out;
+}
+
+.modal-sm {
+  max-width: 440px;
+}
+
+.modal-md {
+  max-width: 600px;
+}
+
+.modal-lg {
+  max-width: 880px;
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 18px 4px 22px;
+}
+
+.modal-head h2 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.modal-body {
+  padding: 8px 22px 18px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.modal-foot {
+  padding: 12px 18px;
+  border-top: 1px solid var(--line);
+  background: #fafbfd;
+  border-radius: 0 0 14px 14px;
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 8px;
+}
+
+.modal-actions .btn-ghost:first-child,
+.modal-actions .foot-note {
+  margin-right: auto;
+}
+
+/* ---------- toast ---------- */
+
+.toasts {
+  position: fixed;
+  right: 20px;
+  bottom: 44px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 420px;
+  padding: 10px 16px;
+  border-radius: 10px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 13.5px;
+  box-shadow: var(--shadow-lg);
+  animation: rise 0.2s ease-out;
+}
+
+.toast svg {
+  flex: none;
+}
+
+.toast-success svg {
+  color: #7be3a9;
+}
+
+.toast-warn svg {
+  color: #ffc46b;
+}
+
+/* ---------- card sheets and pads ---------- */
+
+.sheet {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  filter: drop-shadow(0 1px 2px rgb(60 50 20 / 0.12)) drop-shadow(0 6px 16px rgb(60 50 20 / 0.12));
+}
+
+.sheet text {
+  white-space: pre;
+}
+
+.pad {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  border-radius: 14px;
+  border: 1.5px solid var(--line-strong);
+  background: #fff;
+  touch-action: none;
+  cursor: crosshair;
+  user-select: none;
+}
+
+.pad-bg {
+  fill: #fff;
+}
+
+.pad-guides line {
+  stroke-width: 1.4;
+}
+
+.pad-guides .g-asc {
+  stroke: #c3cdea;
+  stroke-dasharray: 6 6;
+}
+
+.pad-guides .g-xh {
+  stroke: #d3dbf0;
+  stroke-dasharray: 3 5;
+}
+
+.pad-guides .g-base {
+  stroke: #6d8be6;
+  stroke-width: 2;
+}
+
+.pad-guides .g-desc {
+  stroke: #e2e7f3;
+  stroke-dasharray: 6 6;
+}
+
+.pad-guides text {
+  font-family: var(--font-body);
+  font-size: 9px;
+  fill: #9aa6c6;
+}
+
+.pad-free {
+  background-image: radial-gradient(#dfe5f2 1.2px, transparent 1.3px);
+  background-size: 22px 22px;
+}
+
+.pad-free .pad-bg {
+  fill: transparent;
+}
+
+.glyph-thumb {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
